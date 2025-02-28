@@ -1,0 +1,31 @@
+:root {
+  --color-bg-primary: #f9f5ff;
+  --color-bg-secondary: #c9d6ff;
+  --color-bg-tertiary: #ffffff;
+  --color-bg-quaternary: #eeecf0;
+  --color-bg-accent: #260d49;
+  --color-bg-accent--hover: #412567;
+  --color-bg-accent--active: #180039;
+  --color-bg-overlay: #0c051e80;
+  --color-bg-shadow: #0c051e33;
+
+  --color-text-primary: #11091b;
+  --color-text-secondary: #473e52;
+  --color-text-accent: #f9f5ff;
+  --color-text-link: #19379c;
+  --color-text-link--hover: #1340d3;
+
+  --font-family-default: "Lora", "Times New Roman", serif;
+  --font-family-accent: "Arima", "Times New Roman", serif;
+
+  --font-size-medium: 1rem;
+  --font-size-large: 1.5rem;
+  --font-size-x-large: 2rem;
+  --font-size-xx-large: 2.5rem;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-default: 1.5;
+}

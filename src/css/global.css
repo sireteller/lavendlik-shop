@@ -1,0 +1,10 @@
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-default);
+  font-optical-sizing: auto;
+  font-size: var(--font-size-medium);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+}
