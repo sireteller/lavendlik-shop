@@ -1,19 +1,29 @@
 <div>
   <header>
-    <nav>this will be the nav</nav>
+    <nav>
+      this will be the nav
+      <ul>
+        <li>
+          <a
+            routerLink=""
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/category"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Category</a
+          >
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <div class="container">
-      <h1>Heading 1</h1>
-      <div class="subheading">Subheading</div>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <p>This text looks so much slimmer than I thought it would.</p>
-      <p>How strange</p>
-      <a href="/">Link</a>
-    </div>
-
     <router-outlet />
   </main>
 </div>
