@@ -3,6 +3,10 @@
   outline-offset: 4px;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
@@ -11,6 +15,7 @@ body {
   font-size: var(--font-size-medium);
   font-style: normal;
   font-weight: var(--font-weight-regular);
+  height: 100%;
   line-height: var(--line-height-default);
 }
 
