@@ -28,4 +28,10 @@
   --font-weight-bold: 700;
 
   --line-height-default: 1.5;
+
+  --max-width-page-content: 48rem; /* 768px */
+
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
 }

@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+  max-width: var(--max-width-page-content);
+  padding: 0 var(--spacing-medium);
+}
+
+.subheading {
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-large);
+}

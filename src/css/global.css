@@ -1,3 +1,8 @@
+*:focus-visible {
+  outline: 3px solid var(--color-text-link);
+  outline-offset: 4px;
+}
+
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
@@ -7,4 +12,36 @@ body {
   font-style: normal;
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-default);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-accent);
+}
+
+h1 {
+  font-size: var(--font-size-xx-large);
+  font-weight: var(--font-weight-bold);
+}
+
+h2 {
+  font-size: var(--font-size-x-large);
+  font-weight: var(--font-weight-semibold);
+}
+
+h3 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-semibold);
+}
+
+a {
+  color: var(--color-text-link);
+  font-weight: var(--font-weight-semibold);
+  text-underline-offset: 0.25em;
+}
+
+a:hover {
+  color: var(--color-text-link--hover);
+  text-decoration-thickness: 2px;
 }
