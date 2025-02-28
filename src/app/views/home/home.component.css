@@ -1,0 +1,41 @@
+.home-intro-banner {
+  background: linear-gradient(var(--color-bg-accent) 0%, #475993 100%);
+  color: var(--color-text-accent);
+}
+
+.home-intro-banner .util-subheading {
+  color: var(--color-text-accent);
+}
+
+.home-intro-banner__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  min-height: 20rem;
+  position: relative;
+}
+
+.home-intro-banner__text {
+  padding: var(--spacing-large) 0;
+  z-index: 1;
+}
+
+.home-intro-banner__logo {
+  background-image: url("../../../assets/icons/lavendlik-logo.svg");
+  background-position: 150% 50%;
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+@media (max-width: 48em) {
+  .home-intro-banner__logo {
+    background-position: left 50% top 50%;
+  }
+}

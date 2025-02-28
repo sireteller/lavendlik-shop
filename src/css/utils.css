@@ -2,6 +2,7 @@
   margin: 0 auto;
   max-width: var(--max-width-page-content);
   padding: 0 var(--spacing-medium);
+  width: 100%;
 }
 
 .util-subheading {
