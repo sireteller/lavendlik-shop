@@ -2,6 +2,15 @@
   background-color: var(--color-bg-accent);
 }
 
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__list-wrapper {
+  display: flex;
+}
+
 .nav__list {
   display: flex;
   list-style: none;
@@ -12,7 +21,7 @@
   display: flex;
 }
 
-.nav__list-link {
+.nav__link {
   color: var(--color-text-accent);
   font-family: var(--font-family-accent);
   font-weight: var(--font-weight-bold);
@@ -21,12 +30,16 @@
   transition: background-color ease-out 0.1s;
 }
 
-.nav__list-link:hover {
+.nav__link:hover {
   background-color: var(--color-bg-accent--hover);
 }
 
-.nav__list-link[aria-current="page"] {
+.nav__link[aria-current="page"] {
   background-color: var(--color-bg-accent--active);
   text-decoration: underline;
   text-underline-offset: 0.5em;
+}
+
+.nav app-logo {
+  height: calc(var(--font-size-medium) * var(--line-height-default));
 }

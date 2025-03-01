@@ -1,36 +1,48 @@
 <header class="nav">
   <nav class="util-container nav__container">
-    <ul class="nav__list">
-      <li class="nav__list-item">
-        <a
-          class="nav__list-link"
-          routerLink=""
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
-        >
-      </li>
-      <li class="nav__list-item">
-        <a
-          class="nav__list-link"
-          routerLink="/category/tshirts"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >T-särgid</a
-        >
-      </li>
-      <li class="nav__list-item">
-        <a
-          class="nav__list-link"
-          routerLink="/category/hoodies"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Pusad</a
-        >
-      </li>
-    </ul>
+    <div class="nav__list-wrapper">
+      <a
+        class="nav__link"
+        routerLink=""
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        aria-label="Lavendlik logo - avalehele"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><app-logo></app-logo
+      ></a>
+
+      <ul class="nav__list">
+        <li class="nav__list-item"></li>
+        <li class="nav__list-item">
+          <a
+            class="nav__link"
+            routerLink="/category/tshirts"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >T-särgid</a
+          >
+        </li>
+        <li class="nav__list-item">
+          <a
+            class="nav__link"
+            routerLink="/category/hoodies"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Pusad</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <a
+      class="nav__link"
+      routerLink="/cart"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ><fa-icon [icon]="faBasketShopping"></fa-icon
+    ></a>
   </nav>
 </header>

@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './category.component.css',
 })
 export class CategoryComponent implements OnInit {
-  private categoryName?: string | null;
+  protected categoryName?: string | null;
 
   constructor(private route: ActivatedRoute) {}
 
