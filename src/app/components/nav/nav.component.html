@@ -12,25 +12,14 @@
       ></a>
 
       <ul class="nav__list">
-        <li class="nav__list-item"></li>
-        <li class="nav__list-item">
+        <li *ngFor="let cat of categories" class="nav__list-item">
           <a
             class="nav__link"
-            routerLink="/category/tshirts"
+            [routerLink]="'/category/' + cat.name"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
             [routerLinkActiveOptions]="{ exact: true }"
-            >T-särgid</a
-          >
-        </li>
-        <li class="nav__list-item">
-          <a
-            class="nav__link"
-            routerLink="/category/hoodies"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Pusad</a
+            >{{ cat.displayName }}</a
           >
         </li>
       </ul>
