@@ -50,3 +50,7 @@ a:hover {
   color: var(--color-text-link--hover);
   text-decoration-thickness: 2px;
 }
+
+dialog::backdrop {
+  background: var(--color-bg-overlay);
+}

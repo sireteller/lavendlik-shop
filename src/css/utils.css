@@ -10,3 +10,15 @@
   font-family: var(--font-family-accent);
   font-size: var(--font-size-large);
 }
+
+@media (max-width: 48em) {
+  .util-only-large-screens {
+    display: none !important;
+  }
+}
+
+@media (min-width: 48em) {
+  .util-only-small-screens {
+    display: none !important;
+  }
+}

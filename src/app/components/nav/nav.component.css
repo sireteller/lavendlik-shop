@@ -7,7 +7,8 @@
   justify-content: space-between;
 }
 
-.nav__list-wrapper {
+.nav__list-wrapper,
+.nav__icon-btns-wrapper {
   display: flex;
 }
 
@@ -22,7 +23,11 @@
 }
 
 .nav__link {
+  align-items: center;
+  background-color: var(--color-bg-accent);
+  border: 0;
   color: var(--color-text-accent);
+  display: flex;
   font-family: var(--font-family-accent);
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-medium);
@@ -30,8 +35,18 @@
   transition: background-color ease-out 0.1s;
 }
 
+.nav__link fa-icon {
+  display: flex;
+}
+
 .nav__link:hover {
   background-color: var(--color-bg-accent--hover);
+}
+
+.nav__link:focus-visible,
+.nav__dialog-close-btn:focus-visible {
+  outline: 2px solid var(--color-text-accent);
+  outline-offset: -2px;
 }
 
 .nav__link[aria-current="page"] {
@@ -42,4 +57,45 @@
 
 .nav app-logo {
   height: calc(var(--font-size-medium) * var(--line-height-default));
+}
+
+.nav__dialog {
+  background-color: var(--color-bg-accent);
+  height: 100%;
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+  max-width: 75%;
+  width: 15rem;
+}
+
+.nav__dialog .nav__list {
+  flex-direction: column;
+  margin-top: 3.5rem;
+}
+
+.nav__dialog .nav__link {
+  width: 100%;
+}
+
+.nav__dialog-close-btn {
+  align-items: center;
+  background-color: var(--color-bg-accent--active);
+  color: var(--color-text-accent);
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  padding: var(--spacing-medium);
+  position: absolute;
+  right: var(--spacing-medium);
+  top: 0;
+  transition: background-color ease-out 0.1s;
+}
+
+.nav__dialog-close-btn fa-icon {
+  font-size: 1.25rem;
+  display: flex;
+}
+
+.nav__dialog-close-btn:hover {
+  background-color: var(--color-bg-accent--hover);
 }

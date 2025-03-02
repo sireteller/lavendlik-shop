@@ -1,3 +1,5 @@
-<h1>{{ categoryDisplayName }}</h1>
+<div class="util-container">
+  <h1 #heading tabindex="-1">{{ categoryDisplayName }}</h1>
 
-<p *ngFor="let product of products">{{ product.name }}</p>
+  <p *ngFor="let product of products">{{ product.name }}</p>
+</div>

@@ -53,3 +53,15 @@ h5,
 h6 {
   text-wrap: balance;
 }
+
+/* Opinionated edits */
+button {
+  border: none;
+  cursor: pointer;
+}
+
+dialog {
+  border: none;
+  max-height: 100%;
+  padding: 0;
+}

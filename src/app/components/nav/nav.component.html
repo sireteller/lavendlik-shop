@@ -11,7 +11,7 @@
         ><app-logo></app-logo
       ></a>
 
-      <ul class="nav__list">
+      <ul class="nav__list util-only-large-screens">
         <li *ngFor="let cat of categories" class="nav__list-item">
           <a
             class="nav__link"
@@ -25,13 +25,46 @@
       </ul>
     </div>
 
-    <a
-      class="nav__link"
-      routerLink="/cart"
-      routerLinkActive="active"
-      ariaCurrentWhenActive="page"
-      [routerLinkActiveOptions]="{ exact: true }"
-      ><fa-icon [icon]="faBasketShopping"></fa-icon
-    ></a>
+    <div class="nav__icon-btns-wrapper">
+      <a
+        class="nav__link"
+        routerLink="/cart"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><fa-icon [icon]="faBasketShopping"></fa-icon
+      ></a>
+      <button
+        aria-haspopup="dialog"
+        [attr.aria-expanded]="dialogExpanded"
+        class="nav__link util-only-small-screens"
+        (click)="openDialog()"
+      >
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
+    </div>
+
+    <dialog
+      class="nav__dialog util-only-small-screens"
+      #dialog
+      (close)="onDialogClose()"
+    >
+      <button class="nav__dialog-close-btn" (click)="closeDialog()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+      <ul class="nav__list">
+        <li *ngFor="let cat of categories" class="nav__list-item">
+          <a
+            class="nav__link"
+            [routerLink]="'/category/' + cat.name"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeDialog()"
+            >{{ cat.displayName }}</a
+          >
+        </li>
+      </ul>
+    </dialog>
   </nav>
 </header>
