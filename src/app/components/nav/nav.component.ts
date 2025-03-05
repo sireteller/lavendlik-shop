@@ -25,6 +25,9 @@ import { NgForOf } from '@angular/common';
   styleUrl: './nav.component.css',
 })
 export class NavComponent implements OnInit {
+  // TODO: refresh browser on reroute or move focus to new title (focus must not move to title if no rerouting occurred
+  // ie if someone navigated to the page via an external link or the page was simply refreshed)
+
   faBasketShopping = faBasketShopping;
   faBars = faBars;
   faXmark = faXmark;

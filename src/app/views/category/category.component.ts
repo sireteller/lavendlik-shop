@@ -34,16 +34,16 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.categoryName = params.get('categoryName');
-      setTimeout(() => {
-        this.heading?.nativeElement?.focus();
-      });
 
       if (this.categoryName) {
         this.productInfoService
           .getProductsByCategory(this.categoryName)
           .subscribe((result) => {
             this.products = result;
-            this.categoryDisplayName = this.products[0].category.displayName;
+            this.categoryDisplayName =
+              this.products.length > 0
+                ? this.products[0].category.displayName
+                : '404';
             this.title.setTitle(`${this.categoryDisplayName} | Lavendlik`);
           });
       }
