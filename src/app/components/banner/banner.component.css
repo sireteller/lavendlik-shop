@@ -65,7 +65,7 @@
   }
 
   ::slotted([slot="img"]) {
-    max-width: 250px;
+    max-width: 16rem;
     object-fit: cover;
     object-position: right;
   }
