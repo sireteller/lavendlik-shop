@@ -17,9 +17,11 @@
 }
 
 .banner__img-wrapper {
+  display: flex;
+  justify-content: end;
   position: absolute;
   right: 0;
-  top: -50%;
+  top: 0;
   width: 33%;
 }
 
@@ -32,8 +34,6 @@
 
   .banner__img-wrapper {
     bottom: 0;
-    display: flex;
-    justify-content: end;
     max-height: 8rem;
     position: absolute;
     right: 0;
@@ -57,8 +57,6 @@
 
   .banner__img-wrapper {
     bottom: 0;
-    display: flex;
-    justify-content: end;
     max-height: 8rem;
     position: absolute;
     right: 0;
