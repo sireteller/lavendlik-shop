@@ -53,4 +53,20 @@ a:hover {
 
 dialog::backdrop {
   background: var(--color-bg-overlay);
+  opacity: 0;
+  transition:
+    display ease-out var(--transition-time-default),
+    overlay ease-out var(--transition-time-default),
+    opacity ease-out var(--transition-time-default);
+  transition-behavior: allow-discrete;
+}
+
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
 }

@@ -34,4 +34,7 @@
   --spacing-small: 0.5rem;
   --spacing-medium: 1rem;
   --spacing-large: 2rem;
+
+  --transition-time-default: 0.2s;
+  --transition-time-fast: 0.1s;
 }

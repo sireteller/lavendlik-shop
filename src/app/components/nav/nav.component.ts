@@ -50,6 +50,7 @@ export class NavComponent implements OnInit {
     this.dialogExpanded = 'true';
   }
 
+  // TODO: close dialog on backdrop click/tap
   closeDialog() {
     this.dialog?.nativeElement.close();
   }

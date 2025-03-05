@@ -32,7 +32,7 @@
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-medium);
   text-decoration: none;
-  transition: background-color ease-out 0.1s;
+  transition: background-color ease-out var(--transition-time-fast);
 }
 
 .nav__link fa-icon {
@@ -65,7 +65,24 @@
   inset-inline-end: 0;
   inset-inline-start: auto;
   max-width: 75%;
+  transform: translateX(100%);
+  transition:
+    transform ease-out var(--transition-time-default),
+    display ease-out var(--transition-time-default),
+    overlay ease-out var(--transition-time-default);
+  transition-behavior: allow-discrete;
   width: 15rem;
+  z-index: 10;
+}
+
+.nav__dialog[open] {
+  transform: translateX(0);
+}
+
+@starting-style {
+  .nav__dialog[open] {
+    transform: translateX(100%);
+  }
 }
 
 .nav__dialog .nav__list {
@@ -79,7 +96,7 @@
 
 .nav__dialog-close-btn {
   align-items: center;
-  background-color: var(--color-bg-accent--active);
+  background-color: var(--color-bg-accent);
   color: var(--color-text-accent);
   display: flex;
   height: 3.5rem;
@@ -88,7 +105,7 @@
   position: absolute;
   right: var(--spacing-medium);
   top: 0;
-  transition: background-color ease-out 0.1s;
+  transition: background-color ease-out var(--transition-time-fast);
 }
 
 .nav__dialog-close-btn fa-icon {
