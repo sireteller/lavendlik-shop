@@ -1,0 +1,74 @@
+@import url(../../../styles.css);
+
+.banner {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  position: relative;
+}
+
+.banner__body {
+  padding: var(--spacing-medium) 0 var(--spacing-large) var(--spacing-medium);
+  width: 66%;
+}
+
+.banner__heading {
+  margin-bottom: var(--spacing-small);
+}
+
+.banner__img-wrapper {
+  position: absolute;
+  right: 0;
+  top: -50%;
+  width: 33%;
+}
+
+@container util-container (max-width: 45.99em) {
+  .banner__body {
+    padding: var(--spacing-medium) var(--spacing-medium)
+      calc(var(--spacing-large) + 8rem);
+    width: 100%;
+  }
+
+  .banner__img-wrapper {
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+    max-height: 8rem;
+    position: absolute;
+    right: 0;
+    top: auto;
+    width: 100%;
+  }
+
+  ::slotted([slot="img"]) {
+    max-width: 16rem;
+    object-fit: cover;
+    object-position: right;
+  }
+}
+
+@media (max-width: 48em) {
+  .banner__body {
+    padding: var(--spacing-medium) var(--spacing-medium)
+      calc(var(--spacing-large) + 8rem);
+    width: 100%;
+  }
+
+  .banner__img-wrapper {
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+    max-height: 8rem;
+    position: absolute;
+    right: 0;
+    top: auto;
+    width: 100%;
+  }
+
+  ::slotted([slot="img"]) {
+    max-width: 250px;
+    object-fit: cover;
+    object-position: right;
+  }
+}

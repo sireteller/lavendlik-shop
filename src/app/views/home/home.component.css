@@ -34,6 +34,16 @@
   z-index: 0;
 }
 
+.home-body {
+  margin-top: var(--spacing-medium);
+}
+
+@container util-container (max-width: 45.99em) {
+  .home-intro-banner__logo {
+    background-position: left 50% top 50%;
+  }
+}
+
 @media (max-width: 48em) {
   .home-intro-banner__logo {
     background-position: left 50% top 50%;

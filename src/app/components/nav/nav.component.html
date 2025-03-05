@@ -11,18 +11,20 @@
         ><app-logo></app-logo
       ></a>
 
-      <ul class="nav__list util-only-large-screens">
-        <li *ngFor="let cat of categories" class="nav__list-item">
-          <a
-            class="nav__link"
-            [routerLink]="'/category/' + cat.name"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >{{ cat.displayName }}</a
-          >
-        </li>
-      </ul>
+      <div class="util-only-large-screens">
+        <ul class="nav__list">
+          <li *ngFor="let cat of categories" class="nav__list-item">
+            <a
+              class="nav__link"
+              [routerLink]="'/category/' + cat.name"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ cat.displayName }}</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="nav__icon-btns-wrapper">
@@ -34,14 +36,16 @@
         [routerLinkActiveOptions]="{ exact: true }"
         ><fa-icon [icon]="faBasketShopping"></fa-icon
       ></a>
-      <button
-        aria-haspopup="dialog"
-        [attr.aria-expanded]="dialogExpanded"
-        class="nav__link util-only-small-screens"
-        (click)="openDialog()"
-      >
-        <fa-icon [icon]="faBars"></fa-icon>
-      </button>
+      <div class="util-only-small-screens">
+        <button
+          aria-haspopup="dialog"
+          [attr.aria-expanded]="dialogExpanded"
+          class="nav__link"
+          (click)="openDialog()"
+        >
+          <fa-icon [icon]="faBars"></fa-icon>
+        </button>
+      </div>
     </div>
 
     <dialog

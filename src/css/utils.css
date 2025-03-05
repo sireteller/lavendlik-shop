@@ -1,4 +1,6 @@
 .util-container {
+  container-type: inline-size;
+  container-name: util-container;
   margin: 0 auto;
   max-width: var(--max-width-page-content);
   padding: 0 var(--spacing-medium);
@@ -13,12 +15,34 @@
 
 @media (max-width: 48em) {
   .util-only-large-screens {
-    display: none !important;
+    display: none;
   }
 }
 
 @media (min-width: 48em) {
   .util-only-small-screens {
-    display: none !important;
+    display: none;
+  }
+}
+
+/* TODO: test unsupported browsers on browserstack or an alternative, make sure nothing is super broken */
+/* Container queries ensure that content collapses in a satisfactory way when font size is > 100% as well */
+@container util-container (max-width: 45.99em) {
+  .util-only-small-screens {
+    display: unset;
+  }
+
+  .util-only-large-screens {
+    display: none;
+  }
+}
+
+@container util-container (min-width: 45.99em) {
+  .util-only-small-screens {
+    display: none;
+  }
+
+  .util-only-large-screens {
+    display: unset;
   }
 }
