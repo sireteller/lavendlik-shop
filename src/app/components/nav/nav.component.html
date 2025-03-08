@@ -34,6 +34,7 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
         [routerLinkActiveOptions]="{ exact: true }"
+        aria-label="Ostukorv"
         ><fa-icon [icon]="faBasketShopping"></fa-icon
       ></a>
       <div class="util-only-small-screens">
@@ -41,6 +42,7 @@
           aria-haspopup="dialog"
           [attr.aria-expanded]="dialogExpanded"
           class="nav__link"
+          aria-label="Ava navigatsioonimenüü"
           (click)="openDialog()"
         >
           <fa-icon [icon]="faBars"></fa-icon>
@@ -53,7 +55,11 @@
       #dialog
       (close)="onDialogClose()"
     >
-      <button class="nav__dialog-close-btn" (click)="closeDialog()">
+      <button
+        class="nav__dialog-close-btn"
+        aria-label="Sulge navigatsioonimenüü"
+        (click)="closeDialog()"
+      >
         <fa-icon [icon]="faXmark"></fa-icon>
       </button>
       <ul class="nav__list">

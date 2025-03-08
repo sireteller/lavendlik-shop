@@ -4,7 +4,7 @@
 }
 
 .home-intro-banner .util-subheading {
-  color: var(--color-text-accent);
+  color: var(--color-text-accent-secondary);
 }
 
 .home-intro-banner__container {
@@ -17,13 +17,22 @@
 }
 
 .home-intro-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
   padding: var(--spacing-large) 0;
   z-index: 1;
 }
 
+.home-intro-banner__heading {
+  /* flex allows shrinking when space runs out */
+  display: flex;
+  height: 6rem;
+}
+
 .home-intro-banner__logo {
   background-image: url("../../../assets/icons/lavendlik-logo.svg");
-  background-position: 150% 50%;
+  background-position: 100% 50%;
   background-repeat: no-repeat;
   background-size: auto 200%;
   height: 100%;
@@ -35,7 +44,7 @@
 }
 
 .home-body {
-  margin-top: var(--spacing-medium);
+  margin-top: var(--spacing-xx-large);
 }
 
 @container util-container (max-width: 45.99em) {
