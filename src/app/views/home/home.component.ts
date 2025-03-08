@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { LogoFullNameComponent } from '../../components/logo-full-name/logo-full-name.component';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { LogoFullNameComponent } from '../../components/logo-full-name/logo-full
     FontAwesomeModule,
     BannerComponent,
     LogoFullNameComponent,
+    ProductCardComponent,
   ],
   templateUrl: './home.component.html',
   standalone: true,
