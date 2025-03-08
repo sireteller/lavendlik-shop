@@ -47,6 +47,10 @@
   margin-top: var(--spacing-xx-large);
 }
 
+.home-body__featured-products {
+  margin-top: var(--spacing-x-large);
+}
+
 @container util-container (max-width: 45.99em) {
   .home-intro-banner__logo {
     background-position: left 50% top 50%;

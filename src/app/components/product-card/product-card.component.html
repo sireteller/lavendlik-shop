@@ -1,14 +1,22 @@
 <div class="product-card">
-  <img [src]="imgSrc" alt="" />
-  <div class="product-card__name">{{ productName }}</div>
-  <div class="product-card__category">{{ category }}</div>
-  <div class="product-card__footer">
-    <div class="product-card__colors">
-      <div *ngFor="let color of colors" class="product-card__color">
-        <div class="product-card__color-box"></div>
-        {{ color.name }}
-        <!-- TODO: visually hidden label -->
+  <img class="product-card__img" [src]="imgSrc" alt="" />
+
+  <div class="product-card__body">
+    <!-- TODO name should be link, but cover the whole card using ::after -->
+    <div class="product-card__name">{{ productName }}</div>
+    <div class="product-card__category">{{ category }}</div>
+
+    <div class="product-card__footer">
+      <div class="product-card__colors">
+        <div *ngFor="let color of colors" class="product-card__color">
+          <div
+            class="product-card__color-box"
+            [style]="{ 'background-color': color.hexCode }"
+          ></div>
+          <!-- TODO: visually hidden label -->
+        </div>
       </div>
+
       <div class="product-card__price">{{ price }}</div>
     </div>
   </div>
