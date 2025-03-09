@@ -1,0 +1,8 @@
+<div class="util-container">
+  <ng-container *ngIf="product; else loading">
+    <h1 class="product-heading">{{ product.name }}</h1>
+  </ng-container>
+  <ng-template #loading>
+    <app-loader></app-loader>
+  </ng-template>
+</div>

@@ -1,0 +1,16 @@
+<dialog
+  *ngIf="fullPage; else regular"
+  (keydown)="onDialogKeydown($event)"
+  class="loader loader--full-page"
+  #dialog
+>
+  <div class="loader__animation"></div>
+  <div class="loader__text">Laadin sisu, palun oota</div>
+</dialog>
+
+<ng-template #regular>
+  <div class="loader">
+    <div class="loader__animation"></div>
+    <div class="loader__text">Laadin sisu, palun oota</div>
+  </div>
+</ng-template>

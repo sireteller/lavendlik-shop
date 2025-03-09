@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Product } from '../../interfaces/product-info';
@@ -22,8 +16,6 @@ export class CategoryComponent implements OnInit {
   protected categoryName?: string | null;
   categoryDisplayName?: string;
   products: Product[] = [];
-
-  @ViewChild('heading') heading?: ElementRef;
 
   constructor(
     private route: ActivatedRoute,

@@ -26,11 +26,17 @@
 
     <div class="home-body__featured-products">
       <app-product-card
-        [category]="'Klassikaline t-särk'"
-        [colors]="[{ id: 0, name: 'Kesköömust', hexCode: '#000' }]"
+        *ngFor="let product of featuredProducts"
+        [category]="
+          product.subcategory
+            ? product.subcategory.name
+            : product.category.displayName
+        "
+        [colors]="product.colors"
         [imgSrc]="''"
-        [price]="'24.99€'"
-        [productName]="'Install, Wizard!'"
+        [price]="product.price + '€'"
+        [productName]="product.name"
+        [productUrl]="'/product/' + product.id"
       ></app-product-card>
     </div>
   </div>

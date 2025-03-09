@@ -8,6 +8,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'product/:productId',
+    loadComponent: () =>
+      import('./views/product/product.component').then(
+        (c) => c.ProductComponent,
+      ),
+  },
+  {
     path: '',
     title: 'Lavendlik',
     loadComponent: () =>

@@ -1,16 +1,16 @@
 export interface Category {
+  displayName: string;
   id: number;
   name: string;
-  displayName: string;
 }
 
 export interface Product {
-  id: number;
-  name: string;
-  displayName: string;
+  category: Category;
   colors: Color[];
   description: string;
-  category: Category;
+  id: number;
+  name: string;
+  price: number;
   subcategory: Subcategory;
 }
 

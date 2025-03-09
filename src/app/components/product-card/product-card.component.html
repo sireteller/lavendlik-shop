@@ -3,7 +3,9 @@
 
   <div class="product-card__body">
     <!-- TODO name should be link, but cover the whole card using ::after -->
-    <div class="product-card__name">{{ productName }}</div>
+    <a [routerLink]="productUrl" class="product-card__name">{{
+      productName
+    }}</a>
     <div class="product-card__category">{{ category }}</div>
 
     <div class="product-card__footer">
