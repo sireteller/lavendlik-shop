@@ -48,7 +48,15 @@
 }
 
 .home-body__featured-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+  justify-content: center;
   margin-top: var(--spacing-x-large);
+}
+
+.home-body__featured-products > * {
+  width: 100%;
 }
 
 @container util-container (max-width: 45.99em) {

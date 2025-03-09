@@ -1,3 +1,13 @@
 .category-heading {
-  margin: var(--spacing-large) 0 var(--spacing-medium);
+  margin: var(--spacing-x-large) 0 var(--spacing-large);
+}
+
+.category-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+}
+
+.category-products > * {
+  width: 100%;
 }

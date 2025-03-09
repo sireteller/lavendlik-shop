@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Product } from '../../interfaces/product-info';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { LoaderComponent } from '../../components/loader/loader.component';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-category',
-  imports: [NgForOf],
+  imports: [NgForOf, NgIf, LoaderComponent, ProductCardComponent],
   templateUrl: './category.component.html',
   standalone: true,
   styleUrl: './category.component.css',
@@ -15,7 +17,7 @@ import { Title } from '@angular/platform-browser';
 export class CategoryComponent implements OnInit {
   protected categoryName?: string | null;
   categoryDisplayName?: string;
-  products: Product[] = [];
+  products!: Product[];
 
   constructor(
     private route: ActivatedRoute,

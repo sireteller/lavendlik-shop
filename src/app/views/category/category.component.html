@@ -1,5 +1,25 @@
 <div class="util-container">
-  <h1 class="category-heading">{{ categoryDisplayName }}</h1>
+  <ng-container *ngIf="products; else loading">
+    <h1 class="category-heading">{{ categoryDisplayName }}</h1>
 
-  <p *ngFor="let product of products">{{ product.name }}</p>
+    <div class="category-products">
+      <app-product-card
+        *ngFor="let product of products"
+        [category]="
+          product.subcategory
+            ? product.subcategory.name
+            : product.category.displayName
+        "
+        [colors]="product.colors"
+        [imgSrc]="''"
+        [price]="product.price + '€'"
+        [productName]="product.name"
+        [productUrl]="'/product/' + product.id"
+      ></app-product-card>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <app-loader></app-loader>
+  </ng-template>
 </div>

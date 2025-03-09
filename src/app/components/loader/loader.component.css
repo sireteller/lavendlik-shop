@@ -15,8 +15,6 @@
 .loader.loader--full-page {
   background-color: var(--color-bg-primary);
   border-radius: var(--border-radius-medium);
-  flex-direction: column;
-  gap: var(--spacing-medium);
   margin: auto;
   padding: var(--spacing-large);
   z-index: 20;
