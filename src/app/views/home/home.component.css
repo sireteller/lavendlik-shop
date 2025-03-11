@@ -44,6 +44,9 @@
 }
 
 .home-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xx-large);
   margin-top: var(--spacing-xx-large);
 }
 
