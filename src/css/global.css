@@ -51,6 +51,17 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+button {
+  background-color: var(--color-bg-accent);
+  border-radius: var(--border-radius-small);
+  color: var(--color-text-accent);
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-small) var(--spacing-medium);
+  max-width: max-content;
+}
+
 dialog::backdrop {
   background: var(--color-bg-overlay);
   opacity: 0;
