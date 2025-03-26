@@ -11,6 +11,7 @@ export interface Product {
   id: number;
   name: string;
   price: number;
+  sizes: Size[];
   subcategory: Subcategory;
 }
 
@@ -18,6 +19,11 @@ export interface Color {
   id: number;
   name: string;
   hexCode: string;
+}
+
+export interface Size {
+  id: number;
+  name: string;
 }
 
 export interface Subcategory {

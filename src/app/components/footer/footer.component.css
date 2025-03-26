@@ -28,6 +28,7 @@
 }
 
 .footer__right {
+  align-items: flex-end;
   gap: var(--spacing-small);
   text-align: end;
 }

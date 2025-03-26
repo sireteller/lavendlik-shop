@@ -3,12 +3,12 @@ import { Product } from '../../interfaces/product-info';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Title } from '@angular/platform-browser';
-import { NgIf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { LoaderComponent } from '../../components/loader/loader.component';
 
 @Component({
   selector: 'app-product',
-  imports: [NgIf, LoaderComponent],
+  imports: [NgIf, LoaderComponent, NgForOf],
   templateUrl: './product.component.html',
   standalone: true,
   styleUrl: './product.component.css',

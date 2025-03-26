@@ -1,8 +1,60 @@
-<div class="util-container">
-  <ng-container *ngIf="product; else loading">
-    <h1 class="product-heading">{{ product.name }}</h1>
-  </ng-container>
-  <ng-template #loading>
+<ng-container *ngIf="product; else loading">
+  <div class="util-y-padding">
+    <div class="util-container">
+      <h1 class="product-heading">{{ product.name }}</h1>
+      <div class="util-subheading">{{ product.subcategory.name }}</div>
+    </div>
+
+    <div class="product-images-preview">
+      <div class="util-container">
+        <div class="product-images-preview__images">
+          <img alt="" src="/" />
+          <img alt="" src="/" />
+          <img alt="" src="/" />
+        </div>
+        <button>Veel pilte</button>
+      </div>
+    </div>
+
+    <div class="util-container product-body">
+      <div class="product-info">
+        <h2>Kirjeldus</h2>
+        <div class="product-price">{{ product.price }} €</div>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div>
+        <h2 class="product-options__heading">Valikud</h2>
+        <form class="product-options">
+          <fieldset>
+            <legend>Värv</legend>
+            <label *ngFor="let color of product.colors">
+              <input type="radio" name="color" [value]="color.id" />
+              {{ color.name }}
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Suurus</legend>
+            <label *ngFor="let size of product.sizes">
+              <input type="radio" name="size" [value]="size.id" />
+              {{ size.name }}
+            </label>
+          </fieldset>
+
+          <label>
+            Kogus
+            <input type="number" name="amount" min="1" max="20" value="1" />
+          </label>
+
+          <button>Lisa korvi</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <div class="util-container util-container--y-padded">
     <app-loader></app-loader>
-  </ng-template>
-</div>
+  </div>
+</ng-template>

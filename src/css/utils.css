@@ -7,6 +7,14 @@
   width: 100%;
 }
 
+.util-container.util-container--y-padded {
+  padding: var(--spacing-x-large) var(--spacing-medium) var(--spacing-xx-large);
+}
+
+.util-y-padding {
+  padding: var(--spacing-x-large) 0 var(--spacing-xx-large);
+}
+
 .util-subheading {
   color: var(--color-text-secondary);
   font-family: var(--font-family-accent);
