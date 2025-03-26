@@ -60,6 +60,15 @@ button {
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-small) var(--spacing-medium);
   max-width: max-content;
+  transition: background-color ease-out var(--transition-time-fast);
+}
+
+button:hover {
+  background-color: var(--color-bg-accent--hover);
+}
+
+button:active {
+  background-color: var(--color-bg-accent--active);
 }
 
 dialog::backdrop {
