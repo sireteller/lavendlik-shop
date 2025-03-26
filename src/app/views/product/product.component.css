@@ -33,3 +33,15 @@
 .product-options__heading {
   margin-bottom: var(--spacing-small);
 }
+
+@container util-container (max-width: 45.99em) {
+  .product-body {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 48em) {
+  .product-body {
+    flex-direction: column;
+  }
+}
