@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCalendarCheck,
+  faFlag,
+  faPenToSquare,
+} from '@fortawesome/free-regular-svg-icons';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { LogoFullNameComponent } from '../../components/logo-full-name/logo-full-name.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -12,7 +15,6 @@ import { NgForOf } from '@angular/common';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink,
     FontAwesomeModule,
     BannerComponent,
     LogoFullNameComponent,
@@ -24,7 +26,9 @@ import { NgForOf } from '@angular/common';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  faBasketShopping = faBasketShopping;
+  iconDeliveryMethod = faFlag;
+  iconDeliveryTime = faCalendarCheck;
+  iconDesignPlace = faPenToSquare;
 
   featuredProducts!: Product[];
 

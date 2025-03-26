@@ -41,10 +41,33 @@
     </div>
   </div>
 
-  <h2>Lohelennul Sinu poole</h2>
-  <h3>Heading 3</h3>
-  <p>This text looks so much slimmer than I thought it would.</p>
-  <p>How strange. <a routerLink="/category/bleh">Link</a></p>
-  <a routerLink="/category/bleh">Link</a>
-  <fa-icon [icon]="faBasketShopping"></fa-icon>
+  <div>
+    <h2 class="home-body__arguments-heading">Lohelennul Sinu poole</h2>
+
+    <div class="home-body__arguments">
+      <div class="home-body__argument">
+        <fa-icon
+          [icon]="iconDeliveryTime"
+          class="home-body__argument-icon"
+        ></fa-icon>
+        <div>Tellimused täidame 14 päeva jooksul alates makse laekumisest</div>
+      </div>
+
+      <div class="home-body__argument">
+        <fa-icon
+          [icon]="iconDeliveryMethod"
+          class="home-body__argument-icon"
+        ></fa-icon>
+        <div>Kohaletoimetamine DPD pakiautomaatidesse üle Eesti</div>
+      </div>
+
+      <div class="home-body__argument">
+        <fa-icon
+          [icon]="iconDesignPlace"
+          class="home-body__argument-icon"
+        ></fa-icon>
+        <div>Tooted disainitud ja tikitud Tartus</div>
+      </div>
+    </div>
+  </div>
 </div>

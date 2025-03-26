@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xx-large);
-  margin-top: var(--spacing-xx-large);
+  margin-block: var(--spacing-xx-large);
 }
 
 .home-body__featured-products {
@@ -60,6 +60,27 @@
 
 .home-body__featured-products > * {
   width: 100%;
+}
+
+.home-body__arguments-heading {
+  margin-bottom: var(--spacing-large);
+}
+
+.home-body__arguments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.home-body__argument {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-medium);
+  width: 100%;
+}
+
+.home-body__argument-icon {
+  font-size: 1.5rem;
 }
 
 @container util-container (max-width: 45.99em) {
