@@ -8,11 +8,13 @@
     <div class="product-images-preview">
       <div class="util-container">
         <div class="product-images-preview__images">
-          <img alt="" src="/" />
-          <img alt="" src="/" />
-          <img alt="" src="/" />
+          <img
+            *ngFor="let image of product.images"
+            alt=""
+            [src]="'http://bee.local:5005' + image.imageUrl"
+            class="product-images-preview__image"
+          />
         </div>
-        <button>Veel pilte</button>
       </div>
     </div>
 
@@ -27,7 +29,7 @@
         <h2 class="product-options__heading">Valikud</h2>
         <form class="product-options">
           <fieldset>
-            <legend>Värv</legend>
+            <legend class="util-form-label">Värv</legend>
             <label *ngFor="let color of product.colors">
               <input type="radio" name="color" [value]="color.id" />
               {{ color.name }}
@@ -35,7 +37,7 @@
           </fieldset>
 
           <fieldset>
-            <legend>Suurus</legend>
+            <legend class="util-form-label">Suurus</legend>
             <label *ngFor="let size of product.sizes">
               <input type="radio" name="size" [value]="size.id" />
               {{ size.name }}
@@ -43,7 +45,7 @@
           </fieldset>
 
           <label>
-            Kogus
+            <div class="util-form-label">Kogus</div>
             <input type="number" name="amount" min="1" max="20" value="1" />
           </label>
 

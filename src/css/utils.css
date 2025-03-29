@@ -31,6 +31,10 @@
   width: 1px;
 }
 
+.util-form-label {
+  font-weight: var(--font-weight-semibold);
+}
+
 @media (max-width: 48em) {
   .util-only-large-screens {
     display: none;

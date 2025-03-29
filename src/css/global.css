@@ -71,6 +71,7 @@ button:active {
   background-color: var(--color-bg-accent--active);
 }
 
+/* TODO: these styles could use a refactor */
 dialog::backdrop {
   background: var(--color-bg-overlay);
   opacity: 0;

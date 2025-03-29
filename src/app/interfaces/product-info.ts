@@ -9,6 +9,7 @@ export interface Product {
   colors: Color[];
   description: string;
   id: number;
+  images: Image[];
   name: string;
   price: number;
   sizes: Size[];
@@ -19,6 +20,11 @@ export interface Color {
   id: number;
   name: string;
   hexCode: string;
+}
+
+export interface Image {
+  id: number;
+  imageUrl: string;
 }
 
 export interface Size {

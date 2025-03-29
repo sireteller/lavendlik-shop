@@ -33,8 +33,16 @@
             : product.category.displayName
         "
         [colors]="product.colors"
-        [imgSrc]="'./test-product-2.jpg'"
-        [imgSrcHover]="'./test-product-3.jpg'"
+        [imgSrc]="
+          'http://bee.local:5005' +
+          product.images[0].imageUrl +
+          '?thumbnail=true'
+        "
+        [imgSrcHover]="
+          'http://bee.local:5005' +
+          product.images[1].imageUrl +
+          '?thumbnail=true'
+        "
         [price]="product.price + ' €'"
         [productName]="product.name"
         [productUrl]="'/product/' + product.id"
