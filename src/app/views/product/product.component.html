@@ -11,7 +11,7 @@
           <img
             *ngFor="let image of product.images"
             alt=""
-            [src]="'http://bee.local:5005' + image.imageUrl"
+            [src]="'http://bee.local:5005' + image.imageUrl + '?thumbnail=true'"
             class="product-images-preview__image"
           />
         </div>
@@ -28,17 +28,26 @@
       <div>
         <h2 class="product-options__heading">Valikud</h2>
         <form class="product-options">
-          <fieldset>
+          <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Värv</legend>
-            <label *ngFor="let color of product.colors">
+            <label
+              *ngFor="let color of product.colors"
+              class="util-form-radio"
+              [style]="{
+                'background-color': color.hexCode,
+                color: colorIsDark(color.hexCode)
+                  ? 'var(--color-text-accent)'
+                  : 'var(--color-text-primary)',
+              }"
+            >
               <input type="radio" name="color" [value]="color.id" />
               {{ color.name }}
             </label>
           </fieldset>
 
-          <fieldset>
+          <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Suurus</legend>
-            <label *ngFor="let size of product.sizes">
+            <label *ngFor="let size of product.sizes" class="util-form-radio">
               <input type="radio" name="size" [value]="size.id" />
               {{ size.name }}
             </label>

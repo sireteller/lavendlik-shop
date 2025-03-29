@@ -1,5 +1,5 @@
 *:focus-visible {
-  outline: 3px solid var(--color-text-link);
+  outline: var(--outline-focus);
   outline-offset: 4px;
 }
 
@@ -69,6 +69,19 @@ button:hover {
 
 button:active {
   background-color: var(--color-bg-accent--active);
+}
+
+input {
+  background-color: var(--color-bg-primary);
+  border: var(--border-form-controls);
+  border-radius: var(--border-radius-small);
+  padding: var(--spacing-small) var(--spacing-medium);
+  transition: border-color ease-out var(--transition-time-fast);
+}
+
+input:focus,
+input:hover {
+  border-color: var(--color-bg-accent--hover);
 }
 
 /* TODO: these styles could use a refactor */

@@ -1,4 +1,6 @@
 :root {
+  --border-form-controls: 1px solid #a3a2a9;
+
   --border-radius-medium: 0.5rem;
   --border-radius-small: 0.25rem;
 
@@ -18,6 +20,8 @@
   --color-text-accent-secondary: #d4cfe5;
   --color-text-link: #19379c;
   --color-text-link--hover: #1340d3;
+
+  --outline-focus: 3px solid var(--color-text-link);
 
   --font-family-default: "Lora", "Times New Roman", serif;
   --font-family-accent: "Arima", "Times New Roman", serif;

@@ -33,6 +33,70 @@
 
 .util-form-label {
   font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-small);
+  padding: 0;
+}
+
+.util-form-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-x-small);
+}
+
+.util-form-radio {
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  display: flex;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+}
+
+.util-form-radio input {
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 1.5rem;
+  padding: 0;
+  position: relative;
+  width: 1.5rem;
+}
+
+.util-form-radio input::before {
+  background-color: var(--color-bg-primary);
+  border: var(--border-form-controls);
+  border-radius: 100%;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transition: border-color ease-out var(--transition-time-fast);
+}
+
+.util-form-radio input::after {
+  background-color: var(--color-bg-accent--hover);
+  border-radius: 100%;
+  content: "";
+  inset: 0.375rem;
+  position: absolute;
+  transform: scale(0);
+  transition: transform linear var(--transition-time-fast);
+}
+
+.util-form-radio input:checked::before,
+.util-form-radio input:focus::before,
+.util-form-radio:hover input::before {
+  border-color: var(--color-bg-accent--hover);
+}
+
+.util-form-radio input:checked::after {
+  transform: scale(1);
+}
+
+.util-form-radio input:focus {
+  outline: none;
+}
+
+.util-form-radio:has(input:focus) {
+  outline: var(--outline-focus);
+  outline-offset: 2px;
 }
 
 @media (max-width: 48em) {

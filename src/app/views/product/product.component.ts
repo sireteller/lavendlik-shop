@@ -39,4 +39,36 @@ export class ProductComponent implements OnInit {
       }
     });
   }
+
+  colorIsDark(hex: string) {
+    /* Copied from https://github.com/scottcorgan/contrast and modified to match my needs */
+    const rgb = this.hexToRgb(hex);
+    const o = Math.round((rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000);
+
+    return o <= 180;
+  }
+
+  /* Copied from https://github.com/scottcorgan/hex-to-rgb and modified to match my needs */
+  private hexToRgb(hex: string) {
+    /* Remove hash */
+    hex = hex.substring(1);
+
+    /* Expand hex */
+    if (hex.length === 3) {
+      hex = hex
+        .split('')
+        .reduce(function (accum, value) {
+          // @ts-ignore
+          return accum.concat([value, value]);
+        }, [])
+        .join('');
+    }
+
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    return [r, g, b];
+  }
 }

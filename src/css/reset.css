@@ -30,7 +30,7 @@ select {
 
 /* 7. Avoid text overflows */
 * {
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* 8. Improve line wrapping */
@@ -55,5 +55,10 @@ button {
 dialog {
   border: none;
   max-height: 100%;
+  padding: 0;
+}
+
+fieldset {
+  border: none;
   padding: 0;
 }
