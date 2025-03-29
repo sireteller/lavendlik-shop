@@ -41,8 +41,19 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.productInfoService.getCategories().subscribe((result) => {
-      // TODO: don't list categories with no products
-      this.categories = result;
+      let categories: Category[] = [];
+
+      result.forEach((category) => {
+        this.productInfoService
+          .getProductsByCategory(category.name)
+          .subscribe((catResult) => {
+            if (catResult.length > 0) {
+              categories.push(category);
+            }
+          });
+      });
+
+      this.categories = categories;
     });
   }
 
