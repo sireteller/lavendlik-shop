@@ -56,6 +56,11 @@
   margin-top: var(--spacing-small);
 }
 
+.product-card__colors {
+  display: flex;
+  gap: var(--spacing-x-small);
+}
+
 .product-card__color-box {
   border-radius: var(--border-radius-small);
   height: 1rem;
