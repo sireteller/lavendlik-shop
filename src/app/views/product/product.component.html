@@ -15,6 +15,11 @@
             class="product-images-preview__image"
           />
         </div>
+
+        <div class="util-info">
+          <fa-icon [icon]="iconModelInfo"></fa-icon>
+          Modell on 160cm pikk ja kannab suurust M
+        </div>
       </div>
     </div>
 
@@ -25,9 +30,15 @@
         <p>{{ product.description }}</p>
       </div>
 
-      <div>
+      <div class="product-options">
         <h2 class="product-options__heading">Valikud</h2>
-        <form class="product-options">
+        <div class="util-info">
+          <fa-icon [icon]="iconThreadInfo"></fa-icon>
+          Tumedatel riietel kasutatakse tikkimiseks valget niiti, heldedatel
+          musta
+        </div>
+
+        <form class="product-options__form">
           <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Värv</legend>
             <label

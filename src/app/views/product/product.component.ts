@@ -5,15 +5,20 @@ import { ProductInfoService } from '../../services/product-info.service';
 import { Title } from '@angular/platform-browser';
 import { NgForOf, NgIf } from '@angular/common';
 import { LoaderComponent } from '../../components/loader/loader.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product',
-  imports: [NgIf, LoaderComponent, NgForOf],
+  imports: [NgIf, LoaderComponent, NgForOf, FaIconComponent],
   templateUrl: './product.component.html',
   standalone: true,
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+  iconModelInfo = faCircleUser;
+  iconThreadInfo = faCircleHalfStroke;
   productId?: string | null;
   product!: Product;
 

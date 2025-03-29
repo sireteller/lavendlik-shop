@@ -21,6 +21,18 @@
   font-size: 1.3rem;
 }
 
+.util-info {
+  align-items: center;
+  display: flex;
+  font-weight: var(--font-weight-semibold);
+  gap: var(--spacing-small);
+  padding: var(--spacing-small) 0;
+}
+
+.util-info fa-icon {
+  font-size: 1.5rem;
+}
+
 .util-sr-only {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
