@@ -45,6 +45,11 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  addToCart(e: SubmitEvent) {
+    e.preventDefault();
+    console.log(e);
+  }
+
   colorIsDark(hex: string) {
     /* Copied from https://github.com/scottcorgan/contrast and modified to match my needs */
     const rgb = this.hexToRgb(hex);

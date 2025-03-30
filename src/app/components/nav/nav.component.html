@@ -28,19 +28,22 @@
     </div>
 
     <div class="nav__icon-btns-wrapper">
-      <a
+      <button
         class="nav__link"
-        routerLink="/cart"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        [routerLinkActiveOptions]="{ exact: true }"
-        aria-label="Ostukorv"
-        ><fa-icon [icon]="faBasketShopping"></fa-icon
-      ></a>
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-label="Ava ostukorv"
+        (click)="cartPreview.open()"
+      >
+        <fa-icon [icon]="faBasketShopping"></fa-icon>
+      </button>
+
+      <app-cart-preview #cartPreview></app-cart-preview>
+
       <div class="util-only-small-screens">
         <button
           aria-haspopup="dialog"
-          [attr.aria-expanded]="dialogExpanded"
+          aria-expanded="false"
           class="nav__link"
           aria-label="Ava navigatsioonimenüü"
           (click)="openDialog()"
@@ -52,8 +55,8 @@
 
     <dialog
       class="nav__dialog util-only-small-screens"
+      aria-label="Navigatsioonimenüü"
       #dialog
-      (close)="onDialogClose()"
     >
       <button
         class="nav__dialog-close-btn"
@@ -62,6 +65,9 @@
       >
         <fa-icon [icon]="faXmark"></fa-icon>
       </button>
+
+      <h1 class="nav-dialog__heading">Menüü</h1>
+
       <ul class="nav__list">
         <li *ngFor="let cat of categories" class="nav__list-item">
           <a

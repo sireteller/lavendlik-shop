@@ -79,7 +79,7 @@ input {
   transition: border-color ease-out var(--transition-time-fast);
 }
 
-input:focus,
+input:focus-visible,
 input:hover {
   border-color: var(--color-bg-accent--hover);
 }

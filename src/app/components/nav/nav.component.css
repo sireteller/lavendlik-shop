@@ -26,6 +26,7 @@
   align-items: center;
   background-color: var(--color-bg-accent);
   border: 0;
+  border-radius: 0;
   color: var(--color-text-accent);
   display: flex;
   font-family: var(--font-family-accent);
@@ -73,7 +74,7 @@
     display ease-out var(--transition-time-default),
     overlay ease-out var(--transition-time-default);
   transition-behavior: allow-discrete;
-  width: 15rem;
+  width: 20rem;
   z-index: 10;
 }
 
@@ -90,7 +91,6 @@
 
 .nav__dialog .nav__list {
   flex-direction: column;
-  margin-top: 3.5rem;
 }
 
 .nav__dialog .nav__link {
@@ -100,13 +100,15 @@
 .nav__dialog-close-btn {
   align-items: center;
   background-color: var(--color-bg-accent);
+  border-radius: 0 0 0 100%;
   color: var(--color-text-accent);
   display: flex;
   height: 3.5rem;
   justify-content: center;
-  padding: var(--spacing-medium);
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-large)
+    var(--spacing-large);
   position: absolute;
-  right: var(--spacing-medium);
+  right: 0;
   top: 0;
   transition: background-color ease-out var(--transition-time-fast);
 }
@@ -118,4 +120,10 @@
 
 .nav__dialog-close-btn:hover {
   background-color: var(--color-bg-accent--hover);
+}
+
+.nav-dialog__heading {
+  color: var(--color-text-accent);
+  font-size: var(--font-size-x-large);
+  margin: var(--spacing-medium) 4rem var(--spacing-medium) var(--spacing-medium);
 }

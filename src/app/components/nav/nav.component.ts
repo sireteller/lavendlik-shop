@@ -10,6 +10,7 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Category } from '../../interfaces/product-info';
 import { NgForOf } from '@angular/common';
+import { CartPreviewComponent } from '../cart-preview/cart-preview.component';
 
 @Component({
   selector: 'app-nav',
@@ -19,6 +20,7 @@ import { NgForOf } from '@angular/common';
     LogoComponent,
     FontAwesomeModule,
     NgForOf,
+    CartPreviewComponent,
   ],
   templateUrl: './nav.component.html',
   standalone: true,
@@ -33,9 +35,9 @@ export class NavComponent implements OnInit {
   faXmark = faXmark;
 
   categories: Category[] = [];
-  dialogExpanded: string = 'false';
 
   @ViewChild('dialog') dialog?: ElementRef;
+  @ViewChild('cartPreview') cartPreview?: ElementRef;
 
   constructor(private productInfoService: ProductInfoService) {}
 
@@ -57,17 +59,13 @@ export class NavComponent implements OnInit {
     });
   }
 
+  // TODO: lock body scrolling when opened
   openDialog() {
     this.dialog?.nativeElement.showModal();
-    this.dialogExpanded = 'true';
   }
 
   // TODO: close dialog on backdrop click/tap
   closeDialog() {
     this.dialog?.nativeElement.close();
-  }
-
-  onDialogClose() {
-    this.dialogExpanded = 'false';
   }
 }
