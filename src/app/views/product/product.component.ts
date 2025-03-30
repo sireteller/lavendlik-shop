@@ -86,14 +86,10 @@ export class ProductComponent implements OnInit {
     this.choicesFormSubmitted = true;
 
     if (this.choicesForm.valid && !!this.productId) {
-      this.cartService
-        .addToCart({
-          ...this.choicesForm.value,
-          productId: this.productId,
-        })
-        .subscribe((cart) => {
-          console.log(cart);
-        });
+      this.cartService.addToCart({
+        ...this.choicesForm.value,
+        productId: this.productId,
+      });
     }
   }
 

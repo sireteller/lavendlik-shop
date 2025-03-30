@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Cart, CartItem } from '../interfaces/cart.interface';
 
 @Injectable({
@@ -8,18 +8,31 @@ import { Cart, CartItem } from '../interfaces/cart.interface';
 })
 export class CartService {
   url = '/api';
+  subject = new BehaviorSubject<Cart | null>(null);
+  cartObservable;
 
-  constructor(private http: HttpClient) {}
-
-  getCart(): Observable<Cart> {
-    return this.http.get<Cart>(`${this.url}/cart`);
+  constructor(private http: HttpClient) {
+    this.cartObservable = this.subject.asObservable();
   }
 
-  addToCart(item: any): Observable<Cart> {
-    return this.http.post<Cart>(`${this.url}/cart/add`, item);
+  loadCart(): void {
+    this.http.get<Cart>(`${this.url}/cart`).subscribe((cart) => {
+      this.subject.next(cart);
+    });
   }
 
-  removeFromCart(item: CartItem): Observable<Cart> {
-    return this.http.delete<Cart>(`${this.url}/cart/remove/${item.id}`);
+  addToCart(item: any): void {
+    this.http.post<Cart>(`${this.url}/cart/add`, item).subscribe((cart) => {
+      cart.openPreview = true;
+      this.subject.next(cart);
+    });
+  }
+
+  removeFromCart(item: CartItem): void {
+    this.http
+      .delete<Cart>(`${this.url}/cart/remove/${item.id}`)
+      .subscribe((cart) => {
+        this.subject.next(cart);
+      });
   }
 }

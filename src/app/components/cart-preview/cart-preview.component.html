@@ -10,6 +10,15 @@
   <h1 class="cart-preview__heading" id="cart-heading">Ostukorv</h1>
 
   <ul class="cart-preview__list">
-    <li class="cart-preview__list-item">hello</li>
+    <li *ngFor="let item of items" class="cart-preview__list-item">
+      {{ item.product.name }}
+      {{ item.amount }}
+      {{ item.color.name }}
+      {{ item.size.name }}
+      {{ item.product.price }}
+      {{ item.totalPrice }}
+    </li>
   </ul>
+
+  <div>Kokku {{ totalPrice.toFixed(2) }}</div>
 </dialog>
