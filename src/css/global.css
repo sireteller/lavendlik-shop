@@ -84,7 +84,10 @@ input:hover {
   border-color: var(--color-bg-accent--hover);
 }
 
-/* TODO: these styles could use a refactor */
+input[aria-invalid="true"] {
+  border-color: var(--color-bg-error);
+}
+
 dialog::backdrop {
   background: var(--color-bg-overlay);
   opacity: 0;

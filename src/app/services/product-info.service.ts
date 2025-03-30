@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category, Product } from '../interfaces/product-info';
+import { Category, Product } from '../interfaces/product-info.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class ProductInfoService {
     );
   }
 
-  getProductById(id: string): Observable<Product> {
+  getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.url}/product/${id}`);
   }
 

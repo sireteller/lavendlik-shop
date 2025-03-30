@@ -8,7 +8,7 @@ import {
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Category } from '../../interfaces/product-info';
+import { Category } from '../../interfaces/product-info.interface';
 import { NgForOf } from '@angular/common';
 import { CartPreviewComponent } from '../cart-preview/cart-preview.component';
 

@@ -34,11 +34,15 @@
         <h2 class="product-options__heading">Valikud</h2>
         <div class="util-info">
           <fa-icon [icon]="iconThreadInfo"></fa-icon>
-          Tumedatel riietel kasutatakse tikkimiseks valget niiti, heldedatel
+          Tumedatel riietel kasutatame tikkimiseks valget niiti, heldedatel
           musta
         </div>
 
-        <form class="product-options__form" (submit)="addToCart($event)">
+        <form
+          class="product-options__form"
+          (ngSubmit)="addToCart()"
+          [formGroup]="choicesForm"
+        >
           <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Värv</legend>
             <label
@@ -51,23 +55,91 @@
                   : 'var(--color-text-primary)',
               }"
             >
-              <input type="radio" name="color" [value]="color.id" />
+              <input
+                type="radio"
+                name="color"
+                required
+                [value]="color.id"
+                formControlName="color"
+                [attr.aria-invalid]="
+                  (choicesFormSubmitted || formColor?.touched) &&
+                  formColor?.invalid
+                "
+              />
               {{ color.name }}
             </label>
           </fieldset>
+          @if (
+            (choicesFormSubmitted || formColor?.touched) &&
+            formColor?.hasError("required")
+          ) {
+            <div class="util-form-error" role="alert">
+              <fa-icon [icon]="iconFormError"></fa-icon> Värv on valimata
+            </div>
+          }
 
           <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Suurus</legend>
             <label *ngFor="let size of product.sizes" class="util-form-radio">
-              <input type="radio" name="size" [value]="size.id" />
+              <input
+                type="radio"
+                name="size"
+                required
+                [value]="size.id"
+                formControlName="size"
+                [attr.aria-invalid]="
+                  (choicesFormSubmitted || formSize?.touched) &&
+                  formSize?.invalid
+                "
+              />
               {{ size.name }}
             </label>
           </fieldset>
+          @if (
+            (choicesFormSubmitted || formSize?.touched) &&
+            formSize?.hasError("required")
+          ) {
+            <div class="util-form-error" role="alert">
+              <fa-icon [icon]="iconFormError"></fa-icon> Suurus on valimata
+            </div>
+          }
 
           <label>
             <div class="util-form-label">Kogus</div>
-            <input type="number" name="amount" min="1" max="20" value="1" />
+            <input
+              type="number"
+              name="amount"
+              min="1"
+              max="100"
+              required
+              formControlName="amount"
+              [attr.aria-invalid]="
+                (choicesFormSubmitted || formAmount?.touched) &&
+                formAmount?.invalid
+              "
+            />
           </label>
+
+          @if (
+            (choicesFormSubmitted || formAmount?.touched) && formAmount?.invalid
+          ) {
+            <div
+              class="util-form-error"
+              role="alert"
+              *ngIf="formAmount?.hasError('required')"
+            >
+              <fa-icon [icon]="iconFormError"></fa-icon>
+              Kogus on sisestamata
+            </div>
+            <div
+              class="util-form-error"
+              role="alert"
+              *ngIf="formAmount?.hasError('min')"
+            >
+              <fa-icon [icon]="iconFormError"></fa-icon>
+              Kogus ei saa olla alla nulli
+            </div>
+          }
 
           <button>Lisa korvi</button>
         </form>

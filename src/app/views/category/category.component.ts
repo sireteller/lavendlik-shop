@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
-import { Product } from '../../interfaces/product-info';
+import { Product } from '../../interfaces/product-info.interface';
 import { NgForOf, NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { LoaderComponent } from '../../components/loader/loader.component';

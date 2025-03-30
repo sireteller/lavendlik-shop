@@ -1,5 +1,5 @@
 :root {
-  --border-form-controls: 1px solid #a3a2a9;
+  --border-form-controls: 2px solid #a3a2a9;
 
   --border-radius-medium: 0.5rem;
   --border-radius-small: 0.25rem;
@@ -13,6 +13,7 @@
   --color-bg-accent--active: #180039;
   --color-bg-overlay: #0c051e80;
   --color-bg-shadow: #473d6c33;
+  --color-bg-error: #a40c0c;
 
   --color-text-primary: #11091b;
   --color-text-secondary: #473e52;

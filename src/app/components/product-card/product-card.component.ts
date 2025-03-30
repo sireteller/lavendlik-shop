@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Color } from '../../interfaces/product-info';
+import { Color } from '../../interfaces/product-info.interface';
 import { NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

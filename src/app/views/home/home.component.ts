@@ -9,7 +9,7 @@ import { BannerComponent } from '../../components/banner/banner.component';
 import { LogoFullNameComponent } from '../../components/logo-full-name/logo-full-name.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { ProductInfoService } from '../../services/product-info.service';
-import { Product } from '../../interfaces/product-info';
+import { Product } from '../../interfaces/product-info.interface';
 import { NgForOf } from '@angular/common';
 
 @Component({

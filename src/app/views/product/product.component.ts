@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../interfaces/product-info';
+import { Product } from '../../interfaces/product-info.interface';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Title } from '@angular/platform-browser';
@@ -7,30 +7,67 @@ import { NgForOf, NgIf } from '@angular/common';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleHalfStroke,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product',
-  imports: [NgIf, LoaderComponent, NgForOf, FaIconComponent],
+  imports: [
+    NgIf,
+    LoaderComponent,
+    NgForOf,
+    FaIconComponent,
+    ReactiveFormsModule,
+  ],
   templateUrl: './product.component.html',
   standalone: true,
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+  choicesFormSubmitted = false;
+  choicesForm = new FormGroup({
+    amount: new FormControl(1, [Validators.required, Validators.min(1)]),
+    color: new FormControl(null, Validators.required),
+    size: new FormControl(null, Validators.required),
+  });
+
+  get formAmount() {
+    return this.choicesForm.get('amount');
+  }
+
+  get formColor() {
+    return this.choicesForm.get('color');
+  }
+
+  get formSize() {
+    return this.choicesForm.get('size');
+  }
+
+  iconFormError = faTriangleExclamation;
   iconModelInfo = faCircleUser;
   iconThreadInfo = faCircleHalfStroke;
-  productId?: string | null;
+  productId?: number | null;
   product!: Product;
 
   constructor(
     private route: ActivatedRoute,
     private productInfoService: ProductInfoService,
+    private cartService: CartService,
     private title: Title,
   ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.productId = params.get('productId');
+      this.productId = parseInt(<string>params.get('productId'));
 
       if (this.productId) {
         this.productInfoService
@@ -45,9 +82,19 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  addToCart(e: SubmitEvent) {
-    e.preventDefault();
-    console.log(e);
+  addToCart() {
+    this.choicesFormSubmitted = true;
+
+    if (this.choicesForm.valid && !!this.productId) {
+      this.cartService
+        .addToCart({
+          ...this.choicesForm.value,
+          productId: this.productId,
+        })
+        .subscribe((cart) => {
+          console.log(cart);
+        });
+    }
   }
 
   colorIsDark(hex: string) {
