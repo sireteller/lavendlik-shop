@@ -9,8 +9,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Category } from '../../interfaces/product-info.interface';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { CartPreviewComponent } from '../cart-preview/cart-preview.component';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -21,6 +22,7 @@ import { CartPreviewComponent } from '../cart-preview/cart-preview.component';
     FontAwesomeModule,
     NgForOf,
     CartPreviewComponent,
+    NgIf,
   ],
   templateUrl: './nav.component.html',
   standalone: true,
@@ -34,12 +36,16 @@ export class NavComponent implements OnInit {
   faBars = faBars;
   faXmark = faXmark;
 
+  cartItemTotal: number = 0;
   categories: Category[] = [];
 
   @ViewChild('dialog') dialog?: ElementRef;
   @ViewChild('cartPreview') cartPreview?: ElementRef;
 
-  constructor(private productInfoService: ProductInfoService) {}
+  constructor(
+    private productInfoService: ProductInfoService,
+    private cartService: CartService,
+  ) {}
 
   ngOnInit() {
     this.productInfoService.getCategories().subscribe((result) => {
@@ -56,6 +62,18 @@ export class NavComponent implements OnInit {
       });
 
       this.categories = categories;
+    });
+
+    this.cartService.cartObservable.subscribe((result) => {
+      let total = 0;
+
+      if (!!result) {
+        result.items.forEach((item) => {
+          total += item.amount;
+        });
+      }
+
+      this.cartItemTotal = total;
     });
   }
 

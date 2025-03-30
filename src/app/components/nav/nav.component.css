@@ -33,6 +33,7 @@
   font-weight: var(--font-weight-bold);
   height: 100%;
   padding: var(--spacing-medium);
+  position: relative;
   text-decoration: none;
   transition: background-color ease-out var(--transition-time-fast);
 }
@@ -59,6 +60,17 @@
 
 .nav app-logo {
   height: calc(var(--font-size-medium) * var(--line-height-default));
+}
+
+.nav__cart-btn-total {
+  background-color: var(--color-bg-secondary);
+  border-radius: 0 0 0 100%;
+  color: var(--color-text-primary);
+  padding: 0 var(--spacing-x-small) 0 var(--spacing-small);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: max-content;
 }
 
 .nav__dialog {
