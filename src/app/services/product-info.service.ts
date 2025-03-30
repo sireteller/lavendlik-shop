@@ -7,7 +7,7 @@ import { Category, Product } from '../interfaces/product-info.interface';
   providedIn: 'root',
 })
 export class ProductInfoService {
-  url = 'http://bee.local:5005/api';
+  url = '/api';
 
   constructor(private http: HttpClient) {}
 

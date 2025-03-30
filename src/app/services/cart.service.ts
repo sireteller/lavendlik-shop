@@ -7,7 +7,7 @@ import { Cart, CartItem } from '../interfaces/cart.interface';
   providedIn: 'root',
 })
 export class CartService {
-  url = 'http://bee.local:5005/api';
+  url = '/api';
 
   constructor(private http: HttpClient) {}
 
