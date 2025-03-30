@@ -11,12 +11,32 @@
 
   <ul class="cart-preview__list">
     <li *ngFor="let item of items" class="cart-preview__list-item">
-      {{ item.product.name }}
-      {{ item.amount }}
-      {{ item.color.name }}
-      {{ item.size.name }}
-      {{ item.product.price }}
-      {{ item.totalPrice }}
+      <img
+        alt=""
+        [src]="item.product.images[1].imageUrl + '?thumbnail=true'"
+        class="cart-preview__list-item-img"
+      />
+      <div>
+        <div class="cart-preview__list-item-name">{{ item.product.name }}</div>
+        <div>{{ item.product.subcategory.name }}</div>
+
+        <div>{{ item.color.name }}</div>
+        <div>{{ item.size.name }}</div>
+
+        <div>{{ item.amount }} tk</div>
+
+        <div>{{ item.product.price }} € / tk</div>
+        <div>{{ item.totalPrice }} € kokku</div>
+      </div>
+
+      <button
+        (click)="removeItem(item)"
+        [attr.aria-label]="
+          'Kustuta ' + item.product.name + ' - ' + item.product.subcategory
+        "
+      >
+        <fa-icon [icon]="iconRemoveItem"></fa-icon>
+      </button>
     </li>
   </ul>
 

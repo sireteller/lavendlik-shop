@@ -69,4 +69,19 @@
 
 .cart-preview__list-item {
   display: flex;
+  gap: var(--spacing-small);
+  padding: var(--spacing-medium);
+}
+
+.cart-preview__list-item-img {
+  border-radius: var(--border-radius-small);
+  flex-shrink: 0;
+  height: 5rem;
+  object-fit: cover;
+  width: 5rem;
+}
+
+.cart-preview__list-item-name {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
 }

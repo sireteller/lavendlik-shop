@@ -66,9 +66,11 @@
   background-color: var(--color-bg-secondary);
   border-radius: 0 0 0 100%;
   color: var(--color-text-primary);
+  min-width: 1.75rem;
   padding: 0 var(--spacing-x-small) 0 var(--spacing-small);
   position: absolute;
   right: 0;
+  text-align: center;
   top: 0;
   width: max-content;
 }

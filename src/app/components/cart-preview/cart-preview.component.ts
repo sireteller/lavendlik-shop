@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../interfaces/cart.interface';
@@ -14,6 +14,7 @@ import { NgForOf } from '@angular/common';
 })
 export class CartPreviewComponent implements OnInit {
   faXmark = faXmark;
+  iconRemoveItem = faTrashCan;
 
   items: CartItem[] = [];
   totalPrice: number = 0;
@@ -45,5 +46,9 @@ export class CartPreviewComponent implements OnInit {
   // TODO: close dialog on backdrop click/tap
   close() {
     this.dialog?.nativeElement.close();
+  }
+
+  removeItem(item: CartItem) {
+    this.cartService.removeFromCart(item);
   }
 }
