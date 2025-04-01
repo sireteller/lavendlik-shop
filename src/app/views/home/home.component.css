@@ -1,10 +1,13 @@
 .home-intro-banner {
-  background: linear-gradient(var(--color-bg-accent) 0%, #475993 100%);
+  background:
+    radial-gradient(circle at 100% 250%, #c0d9ff7a, #a64bff7a, transparent 40%),
+    linear-gradient(var(--color-bg-accent) 0%, #475993 100%);
   color: var(--color-text-accent);
 }
 
 .home-intro-banner .util-subheading {
   color: var(--color-text-accent-secondary);
+  margin: -24px 0 0 72px; /* in this case px actually works better for zoom bc it's such a specific relation with the logo */
 }
 
 .home-intro-banner__container {
