@@ -4,10 +4,11 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../interfaces/cart.interface';
 import { NgForOf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart-preview',
-  imports: [FaIconComponent, NgForOf],
+  imports: [FaIconComponent, NgForOf, RouterLink],
   templateUrl: './cart-preview.component.html',
   standalone: true,
   styleUrl: './cart-preview.component.css',
@@ -33,8 +34,6 @@ export class CartPreviewComponent implements OnInit {
 
       this.items = result ? result.items : [];
       this.totalPrice = result ? result.totalPrice : 0;
-
-      console.log(result);
     });
   }
 

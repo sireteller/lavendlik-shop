@@ -9,36 +9,77 @@
 
   <h1 class="cart-preview__heading" id="cart-heading">Ostukorv</h1>
 
-  <ul class="cart-preview__list">
-    <li *ngFor="let item of items" class="cart-preview__list-item">
+  @if (items.length < 1) {
+    <div class="cart-preview__empty-state">
       <img
-        alt=""
-        [src]="item.product.images[1].imageUrl + '?thumbnail=true'"
-        class="cart-preview__list-item-img"
+        class="cart-preview__empty-state-img"
+        alt="Illustratsioon draakonist, kes on oma pea pistnud tühja paberkotti"
+        src="./empty-cart.png"
       />
-      <div>
-        <div class="cart-preview__list-item-name">{{ item.product.name }}</div>
-        <div>{{ item.product.subcategory.name }}</div>
+      <div class="cart-preview__empty-state-text">Siin pole veel midagi</div>
+    </div>
+  } @else {
+    <ul class="cart-preview__list">
+      <li *ngFor="let item of items" class="cart-preview__list-item-wrapper">
+        <button
+          class="cart-preview__list-item-remove-btn"
+          (click)="removeItem(item)"
+          [attr.aria-label]="
+            'Kustuta ' +
+            item.color.name +
+            item.size.name +
+            item.product.name +
+            ' - ' +
+            item.product.subcategory
+          "
+        >
+          <fa-icon [icon]="iconRemoveItem"></fa-icon>
+        </button>
 
-        <div>{{ item.color.name }}</div>
-        <div>{{ item.size.name }}</div>
+        <div class="cart-preview__list-item">
+          <div class="cart-preview__list-item-left-side-info">
+            <img
+              alt=""
+              [src]="item.product.images[1].imageUrl + '?thumbnail=true'"
+              class="cart-preview__list-item-img"
+            />
 
-        <div>{{ item.amount }} tk</div>
+            <div class="cart-preview__list-item-color-wrapper">
+              <div
+                class="cart-preview__list-item-color"
+                [style]="{ 'background-color': item.color.hexCode }"
+              ></div>
+              <div class="cart-preview__list-item-size">
+                {{ item.size.name }}
+              </div>
+            </div>
+          </div>
 
-        <div>{{ item.product.price }} € / tk</div>
-        <div>{{ item.totalPrice }} € kokku</div>
-      </div>
+          <div class="cart-preview__list-item-right-side-info">
+            <div>
+              <a
+                (click)="close()"
+                [routerLink]="'/product/' + item.product.id"
+                class="cart-preview__list-item-name"
+              >
+                {{ item.product.name }}
+              </a>
+              <div>{{ item.product.subcategory.name }}</div>
+            </div>
 
-      <button
-        (click)="removeItem(item)"
-        [attr.aria-label]="
-          'Kustuta ' + item.product.name + ' - ' + item.product.subcategory
-        "
-      >
-        <fa-icon [icon]="iconRemoveItem"></fa-icon>
-      </button>
-    </li>
-  </ul>
+            <div class="cart-preview__price-wrapper">
+              <div>{{ item.amount }} x {{ item.product.price }} €</div>
+              <div class="cart-preview__list-item-total-price">
+                {{ item.totalPrice }} €
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
 
-  <div>Kokku {{ totalPrice.toFixed(2) }}</div>
+    <div class="cart-preview__total-price">
+      Kokku {{ totalPrice.toFixed(2) }} €
+    </div>
+  }
 </dialog>

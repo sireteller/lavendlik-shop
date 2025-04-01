@@ -48,7 +48,7 @@
 }
 
 .cart-preview__close-btn:hover {
-  background-color: #e0dfe5;
+  background-color: var(--color-bg-primary--hover);
 }
 
 .cart-preview__close-btn:focus-visible {
@@ -60,6 +60,17 @@
   margin: var(--spacing-medium) 4rem var(--spacing-medium) var(--spacing-medium);
 }
 
+.cart-preview__empty-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium);
+}
+
+.cart-preview__empty-state-img {
+  max-width: 100%;
+}
+
 .cart-preview__list {
   display: flex;
   flex-direction: column;
@@ -67,21 +78,70 @@
   padding: 0;
 }
 
+.cart-preview__list-item-wrapper {
+  align-items: flex-end;
+  border-bottom: 1px solid var(--color-border-secondary);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-large);
+}
+
+.cart-preview__list-item-remove-btn {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+
+.cart-preview__list-item-remove-btn:hover {
+  background-color: var(--color-bg-primary--hover);
+}
+
 .cart-preview__list-item {
   display: flex;
   gap: var(--spacing-small);
-  padding: var(--spacing-medium);
+  width: 100%;
+}
+
+.cart-preview__list-item-left-side-info,
+.cart-preview__list-item-right-side-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.cart-preview__list-item-color-wrapper {
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+.cart-preview__list-item-size {
+  font-weight: var(--font-weight-semibold);
 }
 
 .cart-preview__list-item-img {
   border-radius: var(--border-radius-small);
   flex-shrink: 0;
-  height: 5rem;
+  height: 4rem;
   object-fit: cover;
-  width: 5rem;
+  width: 4rem;
+}
+
+.cart-preview__list-item-color {
+  border-radius: var(--border-radius-small);
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .cart-preview__list-item-name {
-  font-size: var(--font-size-large);
+  font-size: 1.3rem;
   font-weight: var(--font-weight-bold);
+}
+
+.cart-preview__list-item-total-price {
+  font-weight: var(--font-weight-bold);
+}
+
+.cart-preview__total-price {
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-medium);
 }

@@ -1,10 +1,11 @@
 :root {
-  --border-form-controls: 2px solid #a3a2a9;
+  --border-form-controls: 2px solid var(--color-border-primary);
 
   --border-radius-medium: 0.5rem;
   --border-radius-small: 0.25rem;
 
   --color-bg-primary: #f7f7ff;
+  --color-bg-primary--hover: #e0dfe5;
   --color-bg-secondary: #c9d6ff;
   --color-bg-tertiary: #ffffff;
   --color-bg-quaternary: #eeecf0;
@@ -14,6 +15,9 @@
   --color-bg-overlay: #0c051e80;
   --color-bg-shadow: #473d6c33;
   --color-bg-error: #a40c0c;
+
+  --color-border-primary: #a3a2a9;
+  --color-border-secondary: #ceced0;
 
   --color-text-primary: #11091b;
   --color-text-secondary: #473e52;
