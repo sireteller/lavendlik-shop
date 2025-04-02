@@ -51,7 +51,9 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
-button {
+button,
+.util-link-button {
+  display: inline-block;
   background-color: var(--color-bg-accent);
   border-radius: var(--border-radius-small);
   color: var(--color-text-accent);
@@ -60,15 +62,20 @@ button {
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-small) var(--spacing-medium);
   max-width: max-content;
+  text-decoration: none;
   transition: background-color ease-out var(--transition-time-fast);
 }
 
-button:hover {
+button:hover,
+.util-link-button:hover {
   background-color: var(--color-bg-accent--hover);
+  color: var(--color-text-accent);
 }
 
-button:active {
+button:active,
+.util-link-button:active {
   background-color: var(--color-bg-accent--active);
+  color: var(--color-text-accent);
 }
 
 input {
