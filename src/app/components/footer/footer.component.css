@@ -44,8 +44,13 @@
 .footer__newsletter-input-wrapper {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-small);
   margin-top: var(--spacing-small);
+}
+
+.footer__newsletter-input {
+  min-width: 0;
 }
 
 @container util-container (max-width: 45.99em) {
