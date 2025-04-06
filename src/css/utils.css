@@ -15,6 +15,10 @@
   padding: var(--spacing-x-large) 0 var(--spacing-xx-large);
 }
 
+.util-h1-spacing {
+  margin: 0 0 var(--spacing-large);
+}
+
 .util-subheading {
   color: var(--color-text-secondary);
   font-family: var(--font-family-accent);

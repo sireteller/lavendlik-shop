@@ -20,6 +20,13 @@ export const routes: Routes = [
       import('./views/cart/cart.component').then((c) => c.CartComponent),
   },
   {
+    path: 'cookies',
+    loadComponent: () =>
+      import('./views/cookies/cookies.component').then(
+        (c) => c.CookiesComponent,
+      ),
+  },
+  {
     path: '',
     title: 'Lavendlik',
     loadComponent: () =>
