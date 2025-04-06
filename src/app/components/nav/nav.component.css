@@ -89,7 +89,7 @@
     display ease-out var(--transition-time-default),
     overlay ease-out var(--transition-time-default);
   transition-behavior: allow-discrete;
-  width: 20rem;
+  width: 25rem;
   z-index: 10;
 }
 
