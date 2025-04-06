@@ -15,6 +15,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'cart',
+    loadComponent: () =>
+      import('./views/cart/cart.component').then((c) => c.CartComponent),
+  },
+  {
     path: '',
     title: 'Lavendlik',
     loadComponent: () =>

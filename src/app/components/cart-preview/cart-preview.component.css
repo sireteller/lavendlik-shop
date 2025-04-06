@@ -4,7 +4,8 @@
   height: 100%;
   inset-inline-end: 0;
   inset-inline-start: auto;
-  max-width: 75%;
+  max-width: 100%;
+  min-width: 25%;
   transform: translateX(100%);
   transition:
     transform ease-out var(--transition-time-default),
