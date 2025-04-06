@@ -10,7 +10,7 @@
 
 .footer__body {
   display: flex;
-  gap: var(--spacing-small);
+  gap: var(--spacing-medium);
 }
 
 .footer__body > * {
@@ -30,6 +30,7 @@
 .footer__right {
   align-items: flex-end;
   gap: var(--spacing-small);
+  justify-content: flex-end;
   text-align: end;
 }
 
@@ -38,6 +39,13 @@
   color: var(--color-text-accent);
   margin-top: var(--spacing-large);
   padding: var(--spacing-small) 0;
+}
+
+.footer__newsletter-input-wrapper {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-small);
+  margin-top: var(--spacing-small);
 }
 
 @container util-container (max-width: 45.99em) {
