@@ -27,6 +27,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'terms-conditions',
+    loadComponent: () =>
+      import('./views/terms-conditions/terms-conditions.component').then(
+        (c) => c.TermsConditionsComponent,
+      ),
+  },
+  {
     path: '',
     title: 'Lavendlik',
     loadComponent: () =>
