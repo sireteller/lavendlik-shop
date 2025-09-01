@@ -66,6 +66,14 @@ button,
   transition: background-color ease-out var(--transition-time-fast);
 }
 
+.util-link-button.util-link-button--large {
+  font-size: var(--font-size-medium-large);
+  max-width: 100%;
+  padding: var(--spacing-medium);
+  text-align: center;
+  width: 100%;
+}
+
 button:hover,
 .util-link-button:hover {
   background-color: var(--color-bg-accent--hover);

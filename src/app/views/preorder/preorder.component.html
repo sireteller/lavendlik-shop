@@ -1,0 +1,61 @@
+<div>
+  <div class="preorder-banner">
+    <div class="util-container preorder-banner__text-container">
+      <div class="preorder-banner__text">
+        <h1>Install, Wizard!</h1>
+        <div class="util-subheading">Klassikaline t-särk</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-images-preview">
+    <div class="util-container">
+      <div class="product-images-preview__images">
+        <img
+          *ngFor="let image of images"
+          alt=""
+          [src]="image.imageUrl"
+          class="product-images-preview__image"
+        />
+      </div>
+
+      <div class="util-info">
+        <fa-icon [icon]="iconModelInfo"></fa-icon>
+        Modell on 160cm pikk ja kannab suurust M
+      </div>
+    </div>
+  </div>
+
+  <div class="util-container product-body">
+    <div class="product-info">
+      <h2>Kirjeldus</h2>
+      <p>
+        Kes ei tahaks omale taskuvõlurit? Klõpsa ja lohista kurikuulus
+        installimisvõlur arvutiekraanilt otse ome uuele t-särgile!
+      </p>
+      <p>100% puuvill</p>
+      <p>
+        Soovitame särki enne esimest kandmist pesta. Nii pehmeneb tikandi
+        tagusriie ning kaovad kõik jäljed, mis võisid särgile jääda
+        tikkimisraamist.
+      </p>
+    </div>
+
+    <div class="product-options">
+      <h2 class="product-options__heading">Valikud</h2>
+      <div>
+        <p>Saadaval 3 värvi: meelespea, lavendel ja kesköö.</p>
+        <p>Saadaval suurused S-3XL</p>
+      </div>
+
+      <div class="product-price">19.99 €</div>
+
+      <a
+        href="https://forms.gle/gXoSgHLGWVLeCdvZA"
+        target="_blank"
+        class="util-link-button util-link-button--large"
+        >Telli</a
+      >
+    </div>
+  </div>
+</div>
