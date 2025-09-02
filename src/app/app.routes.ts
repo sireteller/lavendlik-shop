@@ -34,6 +34,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./views/privacy-policy/privacy-policy.component').then(
+        (c) => c.PrivacyPolicyComponent,
+      ),
+  },
+  {
     path: '',
     title: 'Lavendlik',
     loadComponent: () =>
