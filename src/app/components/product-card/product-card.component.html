@@ -14,15 +14,17 @@
 
     <div class="product-card__footer">
       <div class="product-card__colors">
-        <div *ngFor="let color of colors" class="product-card__color">
-          <div
-            class="product-card__color-box"
-            [style]="{ 'background-color': color.hexCode }"
-          ></div>
-          <div class="util-sr-only">
-            {{ color.name }}
+        @for (color of colors; track color) {
+          <div class="product-card__color">
+            <div
+              class="product-card__color-box"
+              [style]="{ 'background-color': color.hexCode }"
+            ></div>
+            <div class="util-sr-only">
+              {{ color.name }}
+            </div>
           </div>
-        </div>
+        }
       </div>
 
       <div class="product-card__price">{{ price }}</div>

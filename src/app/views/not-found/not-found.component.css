@@ -1,0 +1,7 @@
+.not-found {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 20vh; /* random height */
+  text-align: center;
+}

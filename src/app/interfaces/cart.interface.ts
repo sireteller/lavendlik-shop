@@ -15,3 +15,11 @@ export interface CartItem {
   size: Size;
   totalPrice: number;
 }
+
+
+export interface AddToCartRequest {
+  productId: number | null;
+  amount?: number | null;
+  color?: Color | null;
+  size?: Size | null;
+};

@@ -1,35 +1,34 @@
-<ng-container *ngIf="product; else loading">
+@if (product) {
   <div class="util-y-padding">
     <div class="util-container">
       <h1>{{ product.name }}</h1>
       <div class="util-subheading">{{ product.subcategory.name }}</div>
     </div>
-
     <div class="product-images-preview">
       <div class="util-container">
         <div class="product-images-preview__images">
-          <img
-            *ngFor="let image of product.images"
-            alt=""
-            [src]="'http://bee.local:5005' + image.imageUrl + '?thumbnail=true'"
-            class="product-images-preview__image"
-          />
+          @for (image of product.images; track image) {
+            <img
+              alt=""
+              [src]="
+                'http://bee.local:5005' + image.imageUrl + '?thumbnail=true'
+              "
+              class="product-images-preview__image"
+            />
+          }
         </div>
-
         <div class="util-info">
           <fa-icon [icon]="iconModelInfo"></fa-icon>
           Modell on 160cm pikk ja kannab suurust M
         </div>
       </div>
     </div>
-
     <div class="util-container product-body">
       <div class="product-info">
         <h2>Kirjeldus</h2>
         <div class="product-price">{{ product.price }} €</div>
         <p>{{ product.description }}</p>
       </div>
-
       <div class="product-options">
         <h2 class="product-options__heading">Valikud</h2>
         <div class="util-info">
@@ -37,7 +36,6 @@
           Tumedatel riietel kasutatame tikkimiseks valget niiti, heldedatel
           musta
         </div>
-
         <form
           class="product-options__form"
           (ngSubmit)="addToCart()"
@@ -45,29 +43,30 @@
         >
           <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Värv</legend>
-            <label
-              *ngFor="let color of product.colors"
-              class="util-form-radio"
-              [style]="{
-                'background-color': color.hexCode,
-                color: colorIsDark(color.hexCode)
-                  ? 'var(--color-text-accent)'
-                  : 'var(--color-text-primary)',
-              }"
-            >
-              <input
-                type="radio"
-                name="color"
-                required
-                [value]="color.id"
-                formControlName="color"
-                [attr.aria-invalid]="
-                  (choicesFormSubmitted || formColor?.touched) &&
-                  formColor?.invalid
-                "
-              />
-              {{ color.name }}
-            </label>
+            @for (color of product.colors; track color) {
+              <label
+                class="util-form-radio"
+                [style]="{
+                  'background-color': color.hexCode,
+                  color: colorIsDark(color.hexCode)
+                    ? 'var(--color-text-accent)'
+                    : 'var(--color-text-primary)',
+                }"
+              >
+                <input
+                  type="radio"
+                  name="color"
+                  required
+                  [value]="color.id"
+                  formControlName="color"
+                  [attr.aria-invalid]="
+                    (choicesFormSubmitted || formColor?.touched) &&
+                    formColor?.invalid
+                  "
+                />
+                {{ color.name }}
+              </label>
+            }
           </fieldset>
           @if (
             (choicesFormSubmitted || formColor?.touched) &&
@@ -77,23 +76,24 @@
               <fa-icon [icon]="iconFormError"></fa-icon> Värv on valimata
             </div>
           }
-
           <fieldset class="util-form-radio-group">
             <legend class="util-form-label">Suurus</legend>
-            <label *ngFor="let size of product.sizes" class="util-form-radio">
-              <input
-                type="radio"
-                name="size"
-                required
-                [value]="size.id"
-                formControlName="size"
-                [attr.aria-invalid]="
-                  (choicesFormSubmitted || formSize?.touched) &&
-                  formSize?.invalid
-                "
-              />
-              {{ size.name }}
-            </label>
+            @for (size of product.sizes; track size) {
+              <label class="util-form-radio">
+                <input
+                  type="radio"
+                  name="size"
+                  required
+                  [value]="size.id"
+                  formControlName="size"
+                  [attr.aria-invalid]="
+                    (choicesFormSubmitted || formSize?.touched) &&
+                    formSize?.invalid
+                  "
+                />
+                {{ size.name }}
+              </label>
+            }
           </fieldset>
           @if (
             (choicesFormSubmitted || formSize?.touched) &&
@@ -103,7 +103,6 @@
               <fa-icon [icon]="iconFormError"></fa-icon> Suurus on valimata
             </div>
           }
-
           <!-- TODO: this label is too wide -->
           <label>
             <div class="util-form-label">Kogus</div>
@@ -120,36 +119,29 @@
               "
             />
           </label>
-
           @if (
             (choicesFormSubmitted || formAmount?.touched) && formAmount?.invalid
           ) {
-            <div
-              class="util-form-error"
-              role="alert"
-              *ngIf="formAmount?.hasError('required')"
-            >
-              <fa-icon [icon]="iconFormError"></fa-icon>
-              Kogus on sisestamata
-            </div>
-            <div
-              class="util-form-error"
-              role="alert"
-              *ngIf="formAmount?.hasError('min')"
-            >
-              <fa-icon [icon]="iconFormError"></fa-icon>
-              Kogus ei saa olla alla nulli
-            </div>
+            @if (formAmount?.hasError("required")) {
+              <div class="util-form-error" role="alert">
+                <fa-icon [icon]="iconFormError"></fa-icon>
+                Kogus on sisestamata
+              </div>
+            }
+            @if (formAmount?.hasError("min")) {
+              <div class="util-form-error" role="alert">
+                <fa-icon [icon]="iconFormError"></fa-icon>
+                Kogus ei saa olla alla nulli
+              </div>
+            }
           }
-
           <button>Lisa korvi</button>
         </form>
       </div>
     </div>
   </div>
-</ng-container>
-<ng-template #loading>
+} @else {
   <div class="util-container util-container--y-padded">
     <app-loader></app-loader>
   </div>
-</ng-template>
+}
