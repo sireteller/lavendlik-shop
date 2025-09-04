@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Color } from '../../interfaces/product-info.interface';
-import { NgForOf } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
-  imports: [NgForOf, RouterLink],
+  imports: [RouterLink],
   templateUrl: './product-card.component.html',
   standalone: true,
   styleUrl: './product-card.component.css',

@@ -5,11 +5,11 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-loader',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './loader.component.html',
   standalone: true,
   styleUrl: './loader.component.css',

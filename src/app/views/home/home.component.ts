@@ -10,7 +10,7 @@ import { LogoFullNameComponent } from '../../components/logo-full-name/logo-full
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Product } from '../../interfaces/product-info.interface';
-import { NgForOf } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
@@ -18,9 +18,8 @@ import { NgForOf } from '@angular/common';
     FontAwesomeModule,
     BannerComponent,
     LogoFullNameComponent,
-    ProductCardComponent,
-    NgForOf,
-  ],
+    ProductCardComponent
+],
   templateUrl: './home.component.html',
   standalone: true,
   styleUrl: './home.component.css',

@@ -25,57 +25,60 @@
     </app-banner>
 
     <div class="home-body__featured-products">
-      <app-product-card
-        *ngFor="let product of featuredProducts"
-        [category]="
-          product.subcategory
-            ? product.subcategory.name
-            : product.category.displayName
-        "
-        [colors]="product.colors"
-        [imgSrc]="
-          'http://bee.local:5005' +
-          product.images[0].imageUrl +
-          '?thumbnail=true'
-        "
-        [imgSrcHover]="
-          'http://bee.local:5005' +
-          product.images[1].imageUrl +
-          '?thumbnail=true'
-        "
-        [price]="product.price + ' €'"
-        [productName]="product.name"
-        [productUrl]="'/product/' + product.id"
-      ></app-product-card>
+      @for (product of featuredProducts; track product) {
+        <app-product-card
+          [category]="
+            product.subcategory
+              ? product.subcategory.name
+              : product.category.displayName
+          "
+          [colors]="product.colors"
+          [imgSrc]="
+            'http://bee.local:5005' +
+            product.images[0].imageUrl +
+            '?thumbnail=true'
+          "
+          [imgSrcHover]="
+            'http://bee.local:5005' +
+            product.images[1].imageUrl +
+            '?thumbnail=true'
+          "
+          [price]="product.price + ' €'"
+          [productName]="product.name"
+          [productUrl]="'/product/' + product.id"
+        ></app-product-card>
+      }
     </div>
-  </div>
 
-  <div>
-    <h2 class="home-body__arguments-heading">Lohelennul Sinu poole</h2>
+    <div>
+      <h2 class="home-body__arguments-heading">Lohelennul Sinu poole</h2>
 
-    <div class="home-body__arguments">
-      <div class="home-body__argument">
-        <fa-icon
-          [icon]="iconDeliveryTime"
-          class="home-body__argument-icon"
-        ></fa-icon>
-        <div>Tellimused täidame 14 päeva jooksul alates makse laekumisest</div>
-      </div>
+      <div class="home-body__arguments">
+        <div class="home-body__argument">
+          <fa-icon
+            [icon]="iconDeliveryTime"
+            class="home-body__argument-icon"
+          ></fa-icon>
+          <div>
+            Tellimused täidame 14 päeva jooksul alates makse laekumisest
+          </div>
+        </div>
 
-      <div class="home-body__argument">
-        <fa-icon
-          [icon]="iconDeliveryMethod"
-          class="home-body__argument-icon"
-        ></fa-icon>
-        <div>Kohaletoimetamine DPD pakiautomaatidesse üle Eesti</div>
-      </div>
+        <div class="home-body__argument">
+          <fa-icon
+            [icon]="iconDeliveryMethod"
+            class="home-body__argument-icon"
+          ></fa-icon>
+          <div>Kohaletoimetamine DPD pakiautomaatidesse üle Eesti</div>
+        </div>
 
-      <div class="home-body__argument">
-        <fa-icon
-          [icon]="iconDesignPlace"
-          class="home-body__argument-icon"
-        ></fa-icon>
-        <div>Tooted disainitud ja tikitud Tartus</div>
+        <div class="home-body__argument">
+          <fa-icon
+            [icon]="iconDesignPlace"
+            class="home-body__argument-icon"
+          ></fa-icon>
+          <div>Tooted disainitud ja tikitud Tartus</div>
+        </div>
       </div>
     </div>
   </div>

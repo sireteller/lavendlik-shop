@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Product } from '../../interfaces/product-info.interface';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInfoService } from '../../services/product-info.service';
 import { Title } from '@angular/platform-browser';
-import { NgForOf, NgIf } from '@angular/common';
+
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
@@ -22,17 +22,21 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-product',
   imports: [
-    NgIf,
     LoaderComponent,
-    NgForOf,
     FaIconComponent,
-    ReactiveFormsModule,
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './product.component.html',
-  standalone: true,
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+  // conflicting opinion ahead
+  // more info - https://www.youtube.com/watch?v=_quyWq4NnRM
+  private productInfoService: ProductInfoService = inject(ProductInfoService);
+  private cartService: CartService = inject(CartService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private title: Title = inject(Title);
+
   choicesFormSubmitted = false;
   choicesForm = new FormGroup({
     amount: new FormControl(1, [Validators.required, Validators.min(1)]),
@@ -57,13 +61,6 @@ export class ProductComponent implements OnInit {
   iconThreadInfo = faCircleHalfStroke;
   productId?: number | null;
   product!: Product;
-
-  constructor(
-    private route: ActivatedRoute,
-    private productInfoService: ProductInfoService,
-    private cartService: CartService,
-    private title: Title,
-  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {

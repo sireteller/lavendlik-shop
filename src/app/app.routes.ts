@@ -39,4 +39,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./views/home/home.component').then((c) => c.HomeComponent),
   },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./views/not-found/not-found.component').then(
+        (c) => c.NotFoundComponent,
+      ),
+  },
 ];

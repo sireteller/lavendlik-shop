@@ -20,12 +20,9 @@ import { CartService } from '../../services/cart.service';
     RouterLinkActive,
     LogoComponent,
     FontAwesomeModule,
-    NgForOf,
-    CartPreviewComponent,
-    NgIf,
+    CartPreviewComponent
   ],
   templateUrl: './nav.component.html',
-  standalone: true,
   styleUrl: './nav.component.css',
 })
 export class NavComponent implements OnInit {
@@ -45,7 +42,7 @@ export class NavComponent implements OnInit {
   constructor(
     private productInfoService: ProductInfoService,
     private cartService: CartService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.productInfoService.getCategories().subscribe((result) => {
@@ -64,7 +61,7 @@ export class NavComponent implements OnInit {
       this.categories = categories;
     });
 
-    this.cartService.cartObservable.subscribe((result) => {
+    this.cartService.cart$.subscribe((result) => {
       let total = 0;
 
       if (!!result) {
@@ -83,6 +80,7 @@ export class NavComponent implements OnInit {
   }
 
   // TODO: close dialog on backdrop click/tap
+  // 4 future: https://web.dev/blog/web-platform-07-2025?hl=en#the_closedby_attribute_of_the_dialog_element
   closeDialog() {
     this.dialog?.nativeElement.close();
   }
